@@ -1,10 +1,9 @@
 // BEGIN
-const make = (name, props) => {
-    console.log(props);
+const make = (name, props = {}) => {
     let company = {
         'name': name,
-        'state': state in props ? props[state] : 'moderating',
-        'createdAt': createdAt in props ? props[createdAt] : Date.now(),
+        'state': props.hasOwnProperty('state') ? props.state : 'moderating',
+        'createdAt': props.hasOwnProperty('createdAt') ? props.createdAt : Date.now(),
     }
     for (let key in props) {
         company[key] = props[key];
